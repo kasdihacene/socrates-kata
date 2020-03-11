@@ -12,8 +12,7 @@ public class CheckIn {
 
     public boolean isColdMeal() {
         if (day.equals("J")) {
-            if (hour == 21 || hour == 22 || hour == 0)
-                return true;
+            return hour == 21 || hour == 22 || hour == 0;
         }
         return false;
     }
