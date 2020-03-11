@@ -11,6 +11,10 @@ public class CheckIn {
     }
 
     public boolean isColdMeal() {
-        return this.day.contains("J") && hour == 21;
+        if (day.equals("J")) {
+            if (hour == 21 || hour == 22 || hour == 0)
+                return true;
+        }
+        return false;
     }
 }

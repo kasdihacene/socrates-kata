@@ -28,5 +28,18 @@ public class SocratesTest {
         assertThat(isCold).isTrue();
     }
 
+    @Test
+    public void checkIn_WhenColdMealAt22() {
+        CheckIn checkIn = new CheckIn("J", 22);
+        boolean coldMeal = checkIn.isColdMeal();
+        assertThat(coldMeal).isTrue();
+    }
 
+    @Test
+    public void checkIn_WhenColdMealAt2(){
+        CheckIn checkIn = new CheckIn("J", 00);
+        boolean coldMeal = checkIn.isColdMeal();
+        assertThat(coldMeal).isTrue();
+
+    }
 }
