@@ -25,7 +25,7 @@ public class SocratesTest {
 
     @Test
     public void checkIn_WhenColdMealAt2() {
-        CheckIn checkIn = new CheckIn("J", 00);
+        CheckIn checkIn = new CheckIn("J", 0);
         boolean coldMeal = checkIn.isColdMeal();
         assertThat(coldMeal).isTrue();
 
