@@ -1,6 +1,5 @@
 package com.lcdlv;
 
-import java.time.DayOfWeek;
 import java.util.List;
 
 public class Meal {
@@ -12,8 +11,7 @@ public class Meal {
             return meals.stream().filter(CheckIn::isColdMeal).count();
     }
 
-    public static int countColdMealsFromCSV(String checkIn) {
-        return 0;
-        // countColdMeals()
+    public static long countColdMealsFromCSV(String checkInCSV) {
+        return countColdMeals(ParserCheckIn.parseCsvMeals(checkInCSV));
     }
 }

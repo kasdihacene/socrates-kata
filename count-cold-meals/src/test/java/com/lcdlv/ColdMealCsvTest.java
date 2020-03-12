@@ -2,15 +2,18 @@ package com.lcdlv;
 
 import org.junit.jupiter.api.Test;
 
-import java.time.DayOfWeek;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class ColdMealCsvTest {
     @Test
-    public void noColdMealWhenParticipantComesThursdayAt18() {
-        String checkIn = "Philippe Dupont;Thursday 18h00;Sunday 16h";
-        int coldMeals = Meal.countColdMealsFromCSV(checkIn);
-        assertThat(coldMeals).isEqualTo(0);
+    public void countColdMeals_WhenCsvInputs_OneColdMealFound() {
+        String checkInCSV = "Philippe Dupont;Thursday 20h00;Sunday 16h\n"
+                + "Philippe Dupont;Thursday 20h00;Sunday 16h\n"
+                + "Philippe Dupont;Friday 21h00;Sunday 16h\n"
+                + "Philippe Dupont;Thursday 22h00;Sunday 16h\n"
+                + "Philippe Dupont;Thursday 20h50;Sunday 16h";
+
+        long coldMeals = Meal.countColdMealsFromCSV(checkInCSV);
+        assertThat(coldMeals).isEqualTo(1);
     }
 }
