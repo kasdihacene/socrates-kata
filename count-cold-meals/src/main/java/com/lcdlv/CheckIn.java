@@ -14,6 +14,10 @@ public class CheckIn {
         this.hour = hour;
     }
 
+    public CheckIn(String[] elements) {
+
+    }
+
     public boolean isColdMeal() {
         if (day.equals(DayOfWeek.THURSDAY)) {
             return hour.isAfter(LocalTime.of(20, 59))

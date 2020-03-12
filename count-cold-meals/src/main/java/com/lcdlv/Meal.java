@@ -9,4 +9,8 @@ public class Meal {
         else
             return meals.stream().filter(CheckIn::isColdMeal).count();
     }
+
+    public static int countColdMealsFromCSV(String checkIn) {
+        return 0;
+    }
 }
