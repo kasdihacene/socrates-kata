@@ -2,6 +2,9 @@ package com.lcdlv;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.*;
 
 public class SocratesTest {
@@ -35,5 +38,11 @@ public class SocratesTest {
         CheckIn checkIn = new CheckIn("J", 20);
         boolean coldMeal = checkIn.isColdMeal();
         assertThat(coldMeal).isFalse();
+    }
+
+    @Test
+    public void countColdMealsWhenEmptyList() {
+        int countColdMeals = Meal.countColdMeals(new ArrayList<>());
+        assertThat(countColdMeals).isEqualTo(0);
     }
 }
