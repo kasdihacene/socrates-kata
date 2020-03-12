@@ -24,10 +24,16 @@ public class SocratesTest {
     }
 
     @Test
-    public void checkIn_WhenColdMealAt2() {
-        CheckIn checkIn = new CheckIn("J", 0);
+    public void checkIn_WhenColdMealAt23() {
+        CheckIn checkIn = new CheckIn("J", 23);
         boolean coldMeal = checkIn.isColdMeal();
         assertThat(coldMeal).isTrue();
+    }
 
+    @Test
+    public void checkIn_WhenColdMealAt20() {
+        CheckIn checkIn = new CheckIn("J", 20);
+        boolean coldMeal = checkIn.isColdMeal();
+        assertThat(coldMeal).isFalse();
     }
 }
