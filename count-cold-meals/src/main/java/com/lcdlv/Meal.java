@@ -1,9 +1,12 @@
 package com.lcdlv;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Meal {
-    public static int countColdMeals(ArrayList<Object> objects) {
-        return 0;
+    public static long countColdMeals(List<CheckIn> meals) {
+        if (meals.isEmpty())
+            return 0;
+        else
+            return meals.stream().filter(CheckIn::isColdMeal).count();
     }
 }

@@ -3,6 +3,8 @@ package com.lcdlv;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
@@ -42,7 +44,22 @@ public class SocratesTest {
 
     @Test
     public void countColdMealsWhenEmptyList() {
-        int countColdMeals = Meal.countColdMeals(new ArrayList<>());
+        long countColdMeals = Meal.countColdMeals(new ArrayList<>());
         assertThat(countColdMeals).isEqualTo(0);
+    }
+
+    @Test
+    public void countColdMealsWhenOneElement(){
+        CheckIn checkIn = new CheckIn("J", 20);
+        long countColdMeals = Meal.countColdMeals(Collections.singletonList(checkIn));
+        assertThat(countColdMeals).isEqualTo(0);
+    }
+
+    @Test
+    public void countColdMealsWhenTwoElements(){
+        CheckIn checkIn1 = new CheckIn("V", 21);
+        CheckIn checkIn2 = new CheckIn("J", 22);
+        long countColdMeals = Meal.countColdMeals(Arrays.asList(checkIn1, checkIn2));
+        assertThat(countColdMeals).isEqualTo(1);
     }
 }
