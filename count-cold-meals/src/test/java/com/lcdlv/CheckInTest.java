@@ -40,10 +40,4 @@ public class CheckInTest {
         assertThat(coldMeal).isFalse();
     }
 
-    @Test
-    public void noColdMealWhenParticipantComesThursdayAt18() {
-        String checkIn = "Philippe Dupont;Thursday 18h00;Sunday 16h";
-        int coldMeals = Meal.countColdMealsFromCSV(checkIn);
-        assertThat(coldMeals).isEqualTo(0);
-    }
 }

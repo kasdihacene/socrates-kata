@@ -1,6 +1,5 @@
 package com.lcdlv;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.time.DayOfWeek;
@@ -11,7 +10,7 @@ import java.util.Collections;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class ColdMealTest {
+public class ColdMealCheckInTest {
 
     @Test
     public void zeroColdMeals_WhenEmptyList() {
