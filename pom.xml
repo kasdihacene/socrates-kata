@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>count-cold-meals</module>
+        <module>price-calculator</module>
     </modules>
 
 

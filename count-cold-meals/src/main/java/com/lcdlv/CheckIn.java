@@ -1,7 +1,6 @@
 package com.lcdlv;
 
 import java.time.DayOfWeek;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 public class CheckIn {
@@ -12,10 +11,6 @@ public class CheckIn {
     public CheckIn(DayOfWeek day, LocalTime hour) {
         this.day = day;
         this.hour = hour;
-    }
-
-    public CheckIn(String[] elements) {
-
     }
 
     public boolean isColdMeal() {
