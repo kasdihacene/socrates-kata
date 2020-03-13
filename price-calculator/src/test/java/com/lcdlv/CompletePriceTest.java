@@ -14,28 +14,28 @@ public class CompletePriceTest {
     @Test
     public void payCompletePriceWithSingleChoice() {
 
-        String pierre = "Pierre;Thursday 20;Sunday 14;Single";
+        String pierre = "Pierre;Thursday 20h00;Sunday 14h00;Single";
         int participationPrice = PriceCalculator.calculateParticipationPrice(pierre);
         assertThat(participationPrice).isEqualTo(SINGLE_ROOM_PRICE);
     }
 
     @Test
     public void payCompletePriceWithTwinChoice(){
-        String mila = "Mila;Thursday 18;Sunday 15;Twin";
+        String mila = "Mila;Thursday 18h00;Sunday 15h00;Twin";
         int participationPrice = PriceCalculator.calculateParticipationPrice(mila);
         assertThat(participationPrice).isEqualTo(TWIN_ROOM_PRICE);
     }
 
     @Test
     public void payCompletePriceWithTripleChoice(){
-        String john = "John;Thursday 18;Sunday 15;Triple";
+        String john = "John;Thursday 18h00;Sunday 15h00;Triple";
         int participationPrice = PriceCalculator.calculateParticipationPrice(john);
         assertThat(participationPrice).isEqualTo(TRIPLE_ROOM_PRICE);
     }
 
     @Test
     public void payCompletePriceWithNoAccommodationChoice(){
-        String arnaud = "Arnaud;Thursday 18;Sunday 15;No Accommodation";
+        String arnaud = "Arnaud;Thursday 18h00;Sunday 15h00;No Accommodation";
         int participationPrice = PriceCalculator.calculateParticipationPrice(arnaud);
         assertThat(participationPrice).isEqualTo(NO_ACCOMMODATION_PRICE);
     }
