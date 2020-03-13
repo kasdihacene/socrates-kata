@@ -1,12 +1,12 @@
 package com.lcdlv;
 
 public enum ChoiceType {
-    SINGLE("Single",610),
-    TWIN("Twin",510),
-    TRIPLE("Triple",410),
-    NO_ACCOMMODATION("No Accommodation",240);
+    SINGLE("Single", 610),
+    TWIN("Twin", 510),
+    TRIPLE("Triple", 410),
+    NO_ACCOMMODATION("No Accommodation", 240);
 
-    private  int price;
+    private int price;
     private String type;
 
     ChoiceType(String type, int price) {
@@ -18,7 +18,7 @@ public enum ChoiceType {
         return type;
     }
 
-    public int getPrice(){
+    public int getPrice() {
         return price;
     }
 

@@ -1,7 +1,9 @@
 package com.lcdlv;
 
 public class Participant {
+
     public static final int MEAL_PRICE = 40;
+
     private String name;
     private CheckIn checkIn;
     private CheckOut checkOut;
@@ -19,17 +21,21 @@ public class Participant {
         if (checkOut.isDepartureOnSaturday() || checkIn.isArrivalOnFriday()) {
             return computePriceWithoutAMeal();
         } else {
-            return this.roomType.getPrice();
+            return roomType.getPrice();
         }
     }
 
     private int computePriceWithoutAMeal() {
-        return this.roomType.getPrice() - MEAL_PRICE;
+        return roomType.getPrice() - MEAL_PRICE;
     }
 
     @Override
     public String toString() {
-        return this.name + ";" + this.checkIn.arrivalDay + ";" + this.checkIn.arrivalHour + ";" + this.checkOut.departureDay
-                + ";" + this.checkOut.departureHour + ";" + this.roomType.getType();
+        return this.name + ";"
+                + this.checkIn.arrivalDay + ";"
+                + this.checkIn.arrivalHour + ";"
+                + this.checkOut.departureDay + ";"
+                + this.checkOut.departureHour + ";"
+                + this.roomType.getType();
     }
 }

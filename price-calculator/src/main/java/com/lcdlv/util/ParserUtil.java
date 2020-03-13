@@ -18,20 +18,22 @@ public class ParserUtil {
         String[] arrivalInformation = ParticipantTokens[ARRIVAL_INFO_INDEX].split(SPACE);
         String[] departureInformation = ParticipantTokens[DEPARTURE_INFO_INDEX].split(SPACE);
 
-        return new Participant(ParticipantTokens[NAME_INDEX], new CheckIn(arrivalInformation)
-                , new CheckOut(departureInformation), roomType);
+        return new Participant(ParticipantTokens[NAME_INDEX],
+                new CheckIn(arrivalInformation),
+                new CheckOut(departureInformation),
+                roomType);
     }
 
     private static ChoiceType getChoiceType(String[] participantTokens) {
-        if (participantTokens[TYPE_INDEX].trim().toUpperCase().equals(NO_ACCOMMODATION_INPUT)) {
+        if (uppercaseOf(participantTokens[TYPE_INDEX]).equals(NO_ACCOMMODATION_INPUT)) {
             return NO_ACCOMMODATION;
         } else {
-            return ChoiceType.valueOf(participantTokens[CHOICE_INFO_INDEX].toUpperCase().trim());
+            return ChoiceType.valueOf(uppercaseOf(participantTokens[TYPE_INDEX]));
         }
     }
 
-//    public static List<CheckIn> parseCsvMeals(String participants) {
-//        String[] inputs = participants.split("\n");
-//        return Arrays.stream(inputs).map(ParserCheckIn::buildCheckIn).collect(Collectors.toList());
-//    }
+    private static String uppercaseOf(String participantToken) {
+        return participantToken.trim().toUpperCase();
+    }
+
 }

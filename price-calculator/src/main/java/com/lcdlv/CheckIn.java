@@ -3,8 +3,7 @@ package com.lcdlv;
 import java.time.DayOfWeek;
 import java.time.LocalTime;
 
-import static com.lcdlv.util.ParserConstantsUtil.HOUR_CHAR;
-import static com.lcdlv.util.ParserConstantsUtil.REPLACEMENT;
+import static com.lcdlv.util.ParserConstantsUtil.*;
 import static java.time.DayOfWeek.FRIDAY;
 
 
@@ -14,8 +13,8 @@ public class CheckIn {
     public DayOfWeek arrivalDay;
 
     public CheckIn(String[] arrivalInformation) {
-        arrivalDay = DayOfWeek.valueOf(arrivalInformation[0].toUpperCase());
-        arrivalHour = LocalTime.parse(arrivalInformation[1].toLowerCase().replace(HOUR_CHAR, REPLACEMENT));
+        arrivalDay = DayOfWeek.valueOf(arrivalInformation[DAY_INDEX].toUpperCase());
+        arrivalHour = LocalTime.parse(arrivalInformation[HOUR_INDEX].toLowerCase().replace(HOUR_CHAR, REPLACEMENT));
     }
 
     public boolean isArrivalOnFriday() {
