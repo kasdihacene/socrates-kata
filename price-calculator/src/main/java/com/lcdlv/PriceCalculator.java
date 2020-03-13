@@ -7,6 +7,8 @@ public class PriceCalculator {
             return 510;
         }else if (participant.contains("Triple")){
             return 410;
+        }else if (participant.contains("No Accommodation")){
+            return 240;
         }
         return 610;
     }
