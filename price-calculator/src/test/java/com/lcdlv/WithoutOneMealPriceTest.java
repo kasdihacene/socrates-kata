@@ -26,5 +26,20 @@ public class WithoutOneMealPriceTest {
         assertThat(participationPrice).isEqualTo(TWIN_ROOM_PRICE - MEAL_PRICE);
     }
 
+    @Test
+    public void payPartialPriceWithoutOneMealWithSingleChoice(){
+        String bertrand = "Bertrand;Friday 09h00;Sunday 14h00;Single";
+        int participationPrice = PriceCalculator.calculateParticipationPrice(bertrand);
+        assertThat(participationPrice).isEqualTo(SINGLE_ROOM_PRICE - MEAL_PRICE);
+    }
+
+
+    @Test
+    public void payPartialPriceWithoutOneMealWithNoAccommodationChoice(){
+        String lea = "Lea;Thursday 18h00;Saturday 22h00;No Accommodation";
+        int participationPrice = PriceCalculator.calculateParticipationPrice(lea);
+        assertThat(participationPrice).isEqualTo(NO_ACCOMMODATION_PRICE - MEAL_PRICE);
+    }
+
 
 }
