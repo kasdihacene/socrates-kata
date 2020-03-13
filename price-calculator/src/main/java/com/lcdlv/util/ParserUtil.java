@@ -5,9 +5,6 @@ import com.lcdlv.CheckOut;
 import com.lcdlv.ChoiceType;
 import com.lcdlv.Participant;
 
-import java.time.DayOfWeek;
-import java.time.LocalTime;
-
 import static com.lcdlv.ChoiceType.NO_ACCOMMODATION;
 import static com.lcdlv.util.ParserConstantsUtil.*;
 
@@ -21,17 +18,12 @@ public class ParserUtil {
         String[] arrivalInformation = ParticipantTokens[ARRIVAL_INFO_INDEX].split(SPACE);
         String[] departureInformation = ParticipantTokens[DEPARTURE_INFO_INDEX].split(SPACE);
 
-        CheckIn checkIn = new CheckIn(arrivalInformation);
-        CheckOut checkOut = new CheckOut(departureInformation);
-
-        DayOfWeek departureDay = DayOfWeek.valueOf(departureInformation[0].toUpperCase());
-        LocalTime departureHour = LocalTime.parse(departureInformation[1].toLowerCase().replace(HOUR_CHAR, REPLACEMENT));
-
-        return new Participant(ParticipantTokens[0], checkIn, checkOut, roomType);
+        return new Participant(ParticipantTokens[NAME_INDEX], new CheckIn(arrivalInformation)
+                , new CheckOut(departureInformation), roomType);
     }
 
     private static ChoiceType getChoiceType(String[] participantTokens) {
-        if (participantTokens[3].trim().toUpperCase().equals(NO_ACCOMMODATION_INPUT)) {
+        if (participantTokens[TYPE_INDEX].trim().toUpperCase().equals(NO_ACCOMMODATION_INPUT)) {
             return NO_ACCOMMODATION;
         } else {
             return ChoiceType.valueOf(participantTokens[CHOICE_INFO_INDEX].toUpperCase().trim());

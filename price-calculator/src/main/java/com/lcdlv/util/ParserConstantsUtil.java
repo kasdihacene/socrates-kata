@@ -10,4 +10,6 @@ public class ParserConstantsUtil {
     public static final int DEPARTURE_INFO_INDEX = 2;
     public static final int CHOICE_INFO_INDEX = 3;
     public static final String SEPARATOR = ";";
+    public static final int NAME_INDEX = 0;
+    public static final int TYPE_INDEX = 3;
 }
