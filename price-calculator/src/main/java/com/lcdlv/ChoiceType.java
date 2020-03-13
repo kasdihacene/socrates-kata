@@ -22,4 +22,7 @@ public enum ChoiceType {
         return price;
     }
 
+    public boolean isTwin() {
+        return this.equals(TWIN);
+    }
 }

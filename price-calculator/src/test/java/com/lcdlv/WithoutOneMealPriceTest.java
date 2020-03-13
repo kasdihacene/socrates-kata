@@ -25,4 +25,6 @@ public class WithoutOneMealPriceTest {
         int participationPrice = PriceCalculator.calculateParticipationPrice(ines);
         assertThat(participationPrice).isEqualTo(TWIN_ROOM_PRICE - MEAL_PRICE);
     }
+
+
 }
