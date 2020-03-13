@@ -1,9 +1,5 @@
 package com.lcdlv;
 
-import static com.lcdlv.ChoiceType.*;
-import static java.time.DayOfWeek.FRIDAY;
-import static java.time.DayOfWeek.SATURDAY;
-
 public class Participant {
     public static final int MEAL_PRICE = 40;
     private String name;
@@ -20,21 +16,15 @@ public class Participant {
     }
 
     int process() {
-        if (this.roomType.isTwin()) {
-            if (this.checkOut.departureDay.equals(SATURDAY)) {
-                return this.roomType.getPrice() - MEAL_PRICE;
-            }
-            return TWIN.getPrice();
-        } else if (this.roomType.isTriple()) {
-            if (this.checkIn.arrivalDay.equals(FRIDAY)) {
-                return this.roomType.getPrice() - MEAL_PRICE;
-            }
-            return TRIPLE.getPrice();
-        } else if (this.roomType.isNoAccommodation()) {
-            return this.roomType.getPrice();
+        if (checkOut.isDepartureOnSaturday() || checkIn.isArrivalOnFriday()) {
+            return computePriceWithoutAMeal();
         } else {
-            return SINGLE.getPrice();
+            return this.roomType.getPrice();
         }
+    }
+
+    private int computePriceWithoutAMeal() {
+        return this.roomType.getPrice() - MEAL_PRICE;
     }
 
     @Override
