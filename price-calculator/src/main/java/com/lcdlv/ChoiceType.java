@@ -25,4 +25,12 @@ public enum ChoiceType {
     public boolean isTwin() {
         return this.equals(TWIN);
     }
+
+    public boolean isTriple() {
+        return this.equals(TRIPLE);
+    }
+
+    public boolean isNoAccommodation() {
+        return this.equals(NO_ACCOMMODATION);
+    }
 }

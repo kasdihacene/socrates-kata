@@ -29,12 +29,12 @@ public class Participant {
                 return this.roomType.getPrice() - 40;
             }
             return TWIN.getPrice();
-        } else if (this.roomType.equals(TRIPLE)) {
+        } else if (this.roomType.isTriple()) {
             if (this.arrivalDay.equals(FRIDAY)) {
                 return this.roomType.getPrice() - 40;
             }
             return TRIPLE.getPrice();
-        } else if (this.roomType.equals(NO_ACCOMMODATION)) {
+        } else if (this.roomType.isNoAccommodation()) {
             return this.roomType.getPrice();
         } else {
             return SINGLE.getPrice();
