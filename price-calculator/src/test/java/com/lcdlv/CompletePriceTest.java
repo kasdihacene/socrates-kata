@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class PriceCalculatorTest {
+public class CompletePriceTest {
 
     public static final int SINGLE_ROOM_PRICE = 610;
     public static final int TWIN_ROOM_PRICE = 510;
