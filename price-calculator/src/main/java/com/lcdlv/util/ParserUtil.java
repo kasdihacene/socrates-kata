@@ -1,5 +1,7 @@
 package com.lcdlv.util;
 
+import com.lcdlv.CheckIn;
+import com.lcdlv.CheckOut;
 import com.lcdlv.ChoiceType;
 import com.lcdlv.Participant;
 
@@ -19,13 +21,13 @@ public class ParserUtil {
         String[] arrivalInformation = ParticipantTokens[ARRIVAL_INFO_INDEX].split(SPACE);
         String[] departureInformation = ParticipantTokens[DEPARTURE_INFO_INDEX].split(SPACE);
 
-        DayOfWeek arrivalDay = DayOfWeek.valueOf(arrivalInformation[0].toUpperCase());
-        LocalTime arrivalHour = LocalTime.parse(arrivalInformation[1].toLowerCase().replace(HOUR_CHAR, REPLACEMENT));
+        CheckIn checkIn = new CheckIn(arrivalInformation);
+        CheckOut checkOut = new CheckOut(departureInformation);
 
         DayOfWeek departureDay = DayOfWeek.valueOf(departureInformation[0].toUpperCase());
         LocalTime departureHour = LocalTime.parse(departureInformation[1].toLowerCase().replace(HOUR_CHAR, REPLACEMENT));
 
-        return new Participant(ParticipantTokens[0], arrivalDay, arrivalHour, departureDay, departureHour, roomType);
+        return new Participant(ParticipantTokens[0], checkIn, checkOut, roomType);
     }
 
     private static ChoiceType getChoiceType(String[] participantTokens) {

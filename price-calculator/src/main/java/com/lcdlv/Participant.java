@@ -1,37 +1,33 @@
 package com.lcdlv;
 
-import java.time.DayOfWeek;
-import java.time.LocalTime;
-
 import static com.lcdlv.ChoiceType.*;
-import static java.time.DayOfWeek.*;
+import static java.time.DayOfWeek.FRIDAY;
+import static java.time.DayOfWeek.SATURDAY;
 
 public class Participant {
+    public static final int MEAL_PRICE = 40;
     private String name;
-    private DayOfWeek arrivalDay;
-    private LocalTime arrivalHour;
-    private DayOfWeek departureDay;
-    private LocalTime departureHour;
+    private CheckIn checkIn;
+    private CheckOut checkOut;
     private ChoiceType roomType;
 
-    public Participant(String name, DayOfWeek arrivalDay, LocalTime arrivalHour, DayOfWeek departureDay, LocalTime departureHour, ChoiceType roomType) {
+
+    public Participant(String name, CheckIn checkIn, CheckOut checkOut, ChoiceType roomType) {
         this.name = name;
-        this.arrivalDay = arrivalDay;
-        this.arrivalHour = arrivalHour;
-        this.departureDay = departureDay;
-        this.departureHour = departureHour;
+        this.checkIn = checkIn;
+        this.checkOut = checkOut;
         this.roomType = roomType;
     }
 
     int process() {
         if (this.roomType.isTwin()) {
-            if (this.departureDay.equals(SATURDAY)) {
-                return this.roomType.getPrice() - 40;
+            if (this.checkOut.departureDay.equals(SATURDAY)) {
+                return this.roomType.getPrice() - MEAL_PRICE;
             }
             return TWIN.getPrice();
         } else if (this.roomType.isTriple()) {
-            if (this.arrivalDay.equals(FRIDAY)) {
-                return this.roomType.getPrice() - 40;
+            if (this.checkIn.arrivalDay.equals(FRIDAY)) {
+                return this.roomType.getPrice() - MEAL_PRICE;
             }
             return TRIPLE.getPrice();
         } else if (this.roomType.isNoAccommodation()) {
@@ -43,7 +39,7 @@ public class Participant {
 
     @Override
     public String toString() {
-        return this.name + ";" + this.arrivalDay + ";" + this.arrivalHour + ";" + this.departureDay
-                + ";" + this.departureHour + ";" + this.roomType.getType();
+        return this.name + ";" + this.checkIn.arrivalDay + ";" + this.checkIn.arrivalHour + ";" + this.checkOut.departureDay
+                + ";" + this.checkOut.departureHour + ";" + this.roomType.getType();
     }
 }
